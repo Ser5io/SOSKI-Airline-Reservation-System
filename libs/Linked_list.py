@@ -1,16 +1,19 @@
-from Node import Node
+from node import Node
 
 class Linked_list:
     def __init__(self):
         self.head = self.tail = None
         self.counter = 0
     
+    # Prints a message if the list is empty.
     def emptyMsg(self):
         print('Empty list...!')
-        
+    
+    # Checks if a specific position exists.
     def inRange(self, pos):
         return pos >=0 and pos < self.counter
     
+    # Checks whether the function is empty or not.
     def isEmpty(self):
         return self.head == None
     
@@ -27,6 +30,7 @@ class Linked_list:
             
         self.counter += 1
     
+    # Adds a new node at the end of list.
     def append(self, data):
         newNode = Node(data)
         
@@ -39,6 +43,7 @@ class Linked_list:
         
         self.counter += 1
     
+    # Inserts a node at a specific position (if it exists).
     def insert(self, data, pos):
         if self.inRange(pos) or pos == self.counter:
             newNode = Node(data)
@@ -58,6 +63,7 @@ class Linked_list:
         else:
             print('Out of Range...!')
     
+    # Searchs if a specific node exists. If it does, it returns the position value.
     def search(self, data):
         if self.isEmpty():
             self.emptyMsg()
@@ -71,6 +77,7 @@ class Linked_list:
                 pos += 1
             return -1
     
+    # Prints out the list.
     def traverse(self):
         if self.isEmpty():
             self.emptyMsg()
@@ -81,7 +88,8 @@ class Linked_list:
                 print(temp.data,end=' ')
                 temp = temp.next
             print(']')
-            
+    
+    # Prints out the list in reversed order.
     def reverse(self):
         if self.isEmpty():
             self.emptyMsg()
@@ -106,6 +114,7 @@ class Linked_list:
         
         self.counter -= 1
     
+    # Removes the tail node and decrements the counter.
     def removeTail(self):
         if self.isEmpty():
             self.emptyMsg()
@@ -117,6 +126,7 @@ class Linked_list:
             
             self.counter -= 1
     
+    # Removes an item if it exists.
     def removeItem(self, data):
         if self.isEmpty():
             self.emptyMsg()
@@ -139,6 +149,7 @@ class Linked_list:
                 
                 self.counter -= 1
     
+    # Clears the list.
     def clear(self):
         if self.isEmpty():
             self.emptyMsg()
@@ -149,8 +160,9 @@ class Linked_list:
                 del temp 
             self.tail = self.head
             self.counter = 0
-            
-    def removeAtPos(self,pos):
+    
+    # Removes a node at a specific position.        
+    def removeAtPos(self, pos):
         if self.isEmpty():
             self.emptyMsg()
             return
@@ -171,6 +183,7 @@ class Linked_list:
         else:
             print('Out of range....!')
     
+    # Removes the node(s) with a specific value
     def removeAll(self, data):
         if self.isEmpty():
             self.emptyMsg()
